@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form method="post" asp-action="Add" enctype="application/x-www-form-urlencoded">
+    <input type="text" name="name" />
+    <button type="submit">Kaydet</button>
+</form>
+<a class="btn btn-warning" asp-action="Removerandom">Rasgele sil</a>
+<div>
+    @if (ViewBag.Names != null)
+    {
+        <ul>
+            @foreach (var item in ViewBag.Names)
+            {
+                <li>
+                    @item <a class="btn btn-danger btn-sm" asp-action="Remove" asp-route-name="@item">Sil</a>
+                </li>
+            }
+        </ul>
+    }
+</div>
+

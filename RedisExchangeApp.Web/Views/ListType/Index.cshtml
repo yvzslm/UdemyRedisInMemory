@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form method="post" asp-action="Add" enctype="application/x-www-form-urlencoded">
+    <input type="text" name="name"/>
+    <button type="submit">Kaydet</button>
+</form>
+<form method="post" asp-action="Remove" enctype="application/x-www-form-urlencoded">
+    <input type="text" name="name" />
+    <button type="submit">Sil</button>
+</form>
+<a class="btn btn-warning" asp-action="RemoveFirst">İlk değeri sil</a>
+<div>
+    @if (ViewBag.Names != null)
+    {
+        <ul>
+            @foreach (var item in ViewBag.Names)
+            {
+                <li>
+                    @item
+                </li>
+            }
+        </ul>
+    }
+</div>
+
